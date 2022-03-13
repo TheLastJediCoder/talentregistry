@@ -17,13 +17,13 @@ public class SkillController {
     @Autowired
     private SkillService skillService;
 
-    // Method for fetching all skill
+    /** Method for fetching all skill */
     @GetMapping("/all")
     public List<Skill> all(){
         return skillService.allSkill();
     }
 
-    // Method for fetching all unique skill
+    /** Method for fetching all unique skill */
     @GetMapping("/unique")
     public List<String> unique(){
         return skillService.uniqueSkill();

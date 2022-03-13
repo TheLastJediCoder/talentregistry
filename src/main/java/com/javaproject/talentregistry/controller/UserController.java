@@ -14,20 +14,20 @@ public class UserController {
     private UserService userService;
 
 
-    // Method for adding new user
+    /** Method for adding new user */
     @PostMapping("/add")
     public String add(@RequestBody User user){
         userService.addUser(user);
         return "User Added Successfully";
     }
 
-    // Method for fetching all user
+    /** Method for fetching all user */
     @GetMapping("/all")
     public List<User> all(){
         return userService.allUser();
     }
 
-    // Method for fetching user based on search
+    /** Method for fetching user based on search */
     @PostMapping("/search")
     public List<User> search(@RequestBody String[] skills){
         if(skills.length == 0){

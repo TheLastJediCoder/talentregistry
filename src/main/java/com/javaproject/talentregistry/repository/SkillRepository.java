@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface SkillRepository extends JpaRepository<Skill, Integer> {
 
-    // Custom query to fetch unique skills
+    /** Custom query to fetch unique skills */
     @Query(value = "SELECT DISTINCT name FROM skill", nativeQuery = true)
     public List<String> findUniqueSkill();
 }
