@@ -52,7 +52,7 @@ frontend.env.local
 frontend.env.development.local
 frontend.env.test.local
 frontend.env.production.local
-frontend.env
+frontend/.env
 
 frontendnpm-debug.log*
 frontendyarn-debug.log*
