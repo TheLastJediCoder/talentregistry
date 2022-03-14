@@ -6,24 +6,24 @@ import javax.persistence.*;
 public class Skill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String name;
-    private Long user_id;
+    private Integer user_id;
 
     public Skill() {
     }
 
-    public Skill(Long id, String name, Long user_id) {
+    public Skill(Integer id, String name, Integer user_id) {
         this.id = id;
         this.name = name;
         this.user_id = user_id;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -35,11 +35,11 @@ public class Skill {
         this.name = name;
     }
 
-    public Long getUser_id() {
+    public Integer getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(Long user_id) {
+    public void setUser_id(Integer user_id) {
         this.user_id = user_id;
     }
 }

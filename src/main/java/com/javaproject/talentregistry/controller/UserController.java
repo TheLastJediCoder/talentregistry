@@ -5,6 +5,7 @@ import com.javaproject.talentregistry.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -36,5 +37,20 @@ public class UserController {
         else {
             return userService.searchUser(skills, skills.length);
         }
+    }
+
+    @PostMapping("/id")
+    public Optional<User> single(@RequestBody String id){
+        return userService.singleUser(id);
+    }
+
+    @PostMapping("/update")
+    public User single(@RequestBody User user){
+        return userService.updateUser(user);
+    }
+
+    @PostMapping("/delete")
+    public String delete(@RequestBody String id){
+        return userService.deleteUser(id);
     }
 }

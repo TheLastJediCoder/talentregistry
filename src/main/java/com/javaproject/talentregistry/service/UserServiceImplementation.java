@@ -5,6 +5,7 @@ import com.javaproject.talentregistry.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImplementation implements UserService{
@@ -25,5 +26,24 @@ public class UserServiceImplementation implements UserService{
     @Override
     public List<User> searchUser(String[] skills, int no_skills){
         return userRepository.findUserBySkills(skills, no_skills);
+    }
+
+    @Override
+    public Optional<User> singleUser(String id) {
+        return userRepository.findById(Integer.parseInt(id));
+    }
+
+    @Override
+    public User updateUser(User user) {
+        User existingUser = userRepository.findById(user.getId()).orElse(null);
+        existingUser.setName(user.getName());
+        existingUser.setSkill(user.getSkill());
+        return userRepository.save(existingUser);
+    }
+
+    @Override
+    public String deleteUser(String id) {
+        userRepository.deleteById(Integer.parseInt(id));
+        return "Deleted Successfully";
     }
 }
