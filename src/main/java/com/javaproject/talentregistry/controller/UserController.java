@@ -39,16 +39,19 @@ public class UserController {
         }
     }
 
+    /** Method for fetching user based on id */
     @PostMapping("/id")
     public Optional<User> single(@RequestBody String id){
         return userService.singleUser(id);
     }
 
+    /** Method for updating user */
     @PostMapping("/update")
     public User single(@RequestBody User user){
         return userService.updateUser(user);
     }
 
+    /** Method for deleting user */
     @PostMapping("/delete")
     public String delete(@RequestBody String id){
         return userService.deleteUser(id);
